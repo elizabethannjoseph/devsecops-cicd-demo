@@ -1,122 +1,97 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+const version = "v1.0.0";
 
+export default function App() {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div className="container">
+      <div className="hero">
+        <h1>🚀 DevSecOps CI/CD Deployment Demo</h1>
+        <p>
+          Automated deployment pipeline using React, Docker, GitHub Actions,
+          Docker Hub and AWS EC2.
+        </p>
+      </div>
+
+      <div className="cards">
+        <div className="card">
+          <h3>🟢 Application</h3>
+          <p>Running</p>
         </div>
+
+        <div className="card">
+          <h3>🐳 Docker</h3>
+          <p>Healthy</p>
+        </div>
+
+        <div className="card">
+          <h3>☁️ AWS EC2</h3>
+          <p>Online</p>
+        </div>
+
+        <div className="card">
+          <h3>🔄 Pipeline</h3>
+          <p>Successful</p>
+        </div>
+      </div>
+
+      <div className="section">
+        <h2>CI/CD Workflow</h2>
+
+        <div className="pipeline">
+          <div>👨‍💻 Developer</div>
+          <span>→</span>
+          <div>GitHub</div>
+          <span>→</span>
+          <div>GitHub Actions</div>
+          <span>→</span>
+          <div>Docker Hub</div>
+          <span>→</span>
+          <div>AWS EC2</div>
+          <span>→</span>
+          <div>🌐 Live</div>
+        </div>
+      </div>
+
+      <div className="section">
+        <h2>Technology Stack</h2>
+
+        <div className="badges">
+          <span>React</span>
+          <span>TypeScript</span>
+          <span>Docker</span>
+          <span>GitHub Actions</span>
+          <span>Docker Hub</span>
+          <span>AWS EC2</span>
+          <span>NGINX</span>
+        </div>
+      </div>
+
+      <div className="info">
         <div>
-          <h1>HELLO!!!!</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
+          <strong>Version</strong>
+          <p>{version}</p>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+        <div>
+          <strong>Environment</strong>
+          <p>Production</p>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+        <div>
+          <strong>Container</strong>
+          <p>devsecops-demo</p>
+        </div>
+
+        <div>
+          <strong>Port</strong>
+          <p>3001</p>
+        </div>
+      </div>
+
+      <footer>
+        <p>✅ Automated Build • ✅ Dockerized • ✅ Auto Deployment to AWS EC2</p>
+      </footer>
+    </div>
+  );
 }
-
-export default App
