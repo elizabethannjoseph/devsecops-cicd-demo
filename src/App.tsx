@@ -6,8 +6,9 @@ export default function App() {
   return (
     <div className="container">
       <div className="hero">
-        <h1>🚀 DevSecOps CI/CD Deployment Demo</h1>
+        <h1>DevSecOps CI/CD Deployment Demo</h1>
         <p>
+
           Automated deployment pipeline using React, Docker, GitHub Actions,
           Docker Hub and AWS EC2.
         </p>
@@ -39,17 +40,23 @@ export default function App() {
         <h2>CI/CD Workflow</h2>
 
         <div className="pipeline">
-          <div>👨‍💻 Developer</div>
+          <div>👨‍💻 Code commit</div>
           <span>→</span>
           <div>GitHub</div>
           <span>→</span>
           <div>GitHub Actions</div>
           <span>→</span>
-          <div>Docker Hub</div>
+          <div>Code build</div>
           <span>→</span>
-          <div>AWS EC2</div>
+          <div>Docker image build</div>
           <span>→</span>
-          <div>🌐 Live</div>
+          <div>push to docker hub</div>
+          <span>→</span>
+          <div>SSH to EC2</div>
+          <span>→</span>
+          <div>pull docker image</div>
+          <span>→</span>
+          <div>website is live</div>
         </div>
       </div>
 
