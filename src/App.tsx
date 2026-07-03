@@ -3,6 +3,8 @@ import "./App.css";
 const version = "v1.0.0";
 
 export default function App() {
+  const userInput = "<img src=x onerror=alert('XSS')>";
+  document.body.innerHTML = userInput;
   return (
     <div className="container">
       <div className="hero">
@@ -95,12 +97,6 @@ export default function App() {
           <p>3001</p>
         </div>
       </div>
-      eval("2 + 2"); 
-      return (
-        <div>
-          <h1>DevSecOps Demo</h1>
-        </div>
-      );
       <footer>
         <p>✅ Automated Build • ✅ Dockerized • ✅ Auto Deployment to AWS EC2</p>
       </footer>
