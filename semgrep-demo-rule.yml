@@ -1,0 +1,8 @@
+rules:
+  - id: demo-eval-detection
+    message: Avoid using eval()
+    severity: ERROR
+    languages:
+      - javascript
+      - typescript
+    pattern: eval(...)
