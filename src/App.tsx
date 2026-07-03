@@ -3,8 +3,6 @@ import "./App.css";
 const version = "v1.0.0";
 
 export default function App() {
-  const userInput = "<img src=x onerror=alert('XSS')>";
-  document.body.innerHTML = userInput;
   return (
     <div className="container">
       <div className="hero">
