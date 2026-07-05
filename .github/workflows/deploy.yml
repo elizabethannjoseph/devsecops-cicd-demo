@@ -39,6 +39,12 @@
             docker:${{ secrets.DOCKERHUB_USERNAME }}/devsecops-demo:latest \
             -o spdx-json=/output/sbom.json
 
+        - name: Upload SBOM
+          uses: actions/upload-artifact@v4
+          with:
+            name: sbom
+            path: sbom.spdx.json
+
         - name: Push Docker Image
           run: |
             docker push ${{ secrets.DOCKERHUB_USERNAME }}/devsecops-demo:latest
