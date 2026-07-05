@@ -12,16 +12,23 @@
       steps:
         - name: Checkout Repository
           uses: actions/checkout@v4
+
         - name: Run GitLeaks CLI
           run: |
             docker run --rm \
             -v ${{ github.workspace }}:/repo \
             ghcr.io/gitleaks/gitleaks:latest \
             detect --source=/repo --verbose
-        - name: Test Docker
+
+        - name: Check Secrets
           run: |
-            docker --version
-            docker info
+            echo "Username: ${{ secrets.DOCKERHUB_USERNAME }}"
+            
+        - name: Login to Docker Hub
+          run: |
+            echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login \
+            -u "${{ secrets.DOCKERHUB_USERNAME }}" \
+            --password-stdin
 
         - name: Build Docker Image
           run: |
