@@ -74,11 +74,16 @@
                 -p 3001:80 \
                 --restart unless-stopped \
                 ${{ secrets.DOCKERHUB_USERNAME }}/devsecops-demo:latest
+        - name: Create Python Virtual Environment
+          run: |
+            python3 -m venv .venv
 
         - name: Install Python Dependencies
           run: |
-            python3 -m pip install -r requirements.txt
+            source .venv/bin/activate
+            pip install -r requirements.txt
 
         - name: Run Pytest + Selenium
           run: |
+            source .venv/bin/activate
             pytest tests/ -v
