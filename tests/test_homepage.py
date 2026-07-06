@@ -23,5 +23,8 @@ def test_homepage():
         driver.get("http://13.55.206.152:3001")
         heading = driver.find_element(By.TAG_NAME, "h1")
         assert heading.text == "DevSecOps CI/CD Deployment Demo"
+
+        driver.save_screenshot("homepage.png")
+        print("Screenshot saved!")
     finally:
         driver.quit()

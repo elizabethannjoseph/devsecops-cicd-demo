@@ -74,6 +74,7 @@
                 -p 3001:80 \
                 --restart unless-stopped \
                 ${{ secrets.DOCKERHUB_USERNAME }}/devsecops-demo:latest
+
         - name: Create Python Virtual Environment
           run: |
             python3 -m venv .venv
@@ -87,3 +88,9 @@
           run: |
             source .venv/bin/activate
             pytest tests/ -v
+
+        - name: Upload Selenium Screenshot
+          uses: actions/upload-artifact@v4
+          with:
+            name: selenium-screenshot
+            path: homepage.png
