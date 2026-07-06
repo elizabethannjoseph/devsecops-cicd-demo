@@ -13,13 +13,10 @@
         - name: Checkout Repository
           uses: actions/checkout@v4
 
-        - name: Run GitLeaks CLI
+        - name: Run GitLeaks
           run: |
-            docker run --rm \
-            -v ${{ github.workspace }}:/repo \
-            ghcr.io/gitleaks/gitleaks:latest \
-            detect --source=/repo --verbose
-
+            gitleaks detect --source "${{ github.workspace }}" --verbose
+            
         - name: Login to Docker Hub
           run: |
             echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login \
