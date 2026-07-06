@@ -18,7 +18,7 @@
 
         - name: Run Semgrep
           run: |
-            semgrep scan --config auto .
+            semgrep scan --config auto -j 1 .
 
         - name: Login to Docker Hub
           run: |
