@@ -16,7 +16,11 @@
         - name: Run GitLeaks
           run: |
             gitleaks detect --source "${{ github.workspace }}" --verbose
-            
+
+        - name: Run Semgrep
+          run: |
+            semgrep scan --config auto .
+
         - name: Login to Docker Hub
           run: |
             echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login \
