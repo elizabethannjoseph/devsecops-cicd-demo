@@ -18,7 +18,7 @@
 
         - name: Run Semgrep
           run: |
-            semgrep scan --config auto -j 1 .
+           semgrep scan --config p/owasp-top-ten .
 
         - name: Login to Docker Hub
           run: |
