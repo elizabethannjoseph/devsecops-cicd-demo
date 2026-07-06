@@ -38,11 +38,13 @@
             anchore/syft:latest \
             docker:${{ secrets.DOCKERHUB_USERNAME }}/devsecops-demo:latest \
             -o spdx-json=/output/sbom.spdx.json
+
         - name: Upload SBOM
           uses: actions/upload-artifact@v4
           with:
             name: sbom
             path: sbom.spdx.json
+
         - name: Scan Docker Image with Trivy
           run: |
             docker run --rm \
@@ -72,3 +74,18 @@
                 -p 3001:80 \
                 --restart unless-stopped \
                 ${{ secrets.DOCKERHUB_USERNAME }}/devsecops-demo:latest
+
+        - name: Run OWASP ZAP Baseline Scan
+          run: |
+            docker run --rm \
+            -v "${{ github.workspace }}:/zap/wrk" \
+            ghcr.io/zaproxy/zaproxy:stable \
+            zap-baseline.py \
+            -t http://13.55.206.152:3001 \
+            -r zap-report.html
+
+        - name: Upload ZAP Report
+          uses: actions/upload-artifact@v4
+          with:
+            name: zap-report
+            spath: zap-report.html
